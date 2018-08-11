@@ -93,7 +93,7 @@ class AppController extends Controller
         // PC／スマホのview切り替え
         if (!$this->request->isMobile()) {
             // plugins/Sp/Template内のviewが読み込まれる
-            $this->viewBuilder()->theme('Sp');
+            $this->viewBuilder()->setTheme('Sp');
         }
     }
 }
