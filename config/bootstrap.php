@@ -49,13 +49,13 @@ use Cake\Utility\Security;
  * You should copy `config/.env.default to `config/.env` and set/modify the
  * variables as required.
  */
-// if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
-//     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
-//     $dotenv->parse()
-//         ->putenv()
-//         ->toEnv()
-//         ->toServer();
-// }
+if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
+    $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+    $dotenv->parse()
+        ->putenv()
+        ->toEnv()
+        ->toServer();
+}
 
 /*
  * Read configuration file and inject configuration into various
@@ -94,7 +94,8 @@ if (Configure::read('debug')) {
  * Set the default server timezone. Using UTC makes time calculations / conversions easier.
  * Check http://php.net/manual/en/timezones.php for list of valid timezone strings.
  */
-date_default_timezone_set(Configure::read('App.defaultTimezone'));
+//date_default_timezone_set(Configure::read('App.defaultTimezone'));
+date_default_timezone_set('Asia/Tokyo');
 
 /*
  * Configure the mbstring extension to use the correct encoding.
