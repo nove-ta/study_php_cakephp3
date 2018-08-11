@@ -68,4 +68,32 @@ class UsersControllerTest extends IntegrationTestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
+
+    public function testLogin()
+    {
+        $this->get('/users/login');
+        $this->assertResponseOk(); //ステータスが200系である
+        $this->assertResponseContains('ログイン'); //ボディにLoginという文字列が含まれている
+    }
+
+    public function testLoginOk()
+    {
+        // ログイン処理の実行
+        $ret = $this->post('/users/login', [
+            'email' => 'test_mail@gmail.com',
+            'password' => 'password'
+        ]);
+
+        // ログイン後のユーザー情報(パスワード以外)
+        $user = [
+          'id' => 1,
+          'email' => 'test_mail@gmail.com',
+          'name' => 'test_user',
+          'password' => 'password'
+
+        ];
+       // セッションのユーザー情報と比較
+       $this->assertSession($user, 'Auth.User');
+       //$this->assertSession(null, 'Auth.User');
+    }
 }

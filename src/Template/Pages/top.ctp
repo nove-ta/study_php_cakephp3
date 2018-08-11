@@ -8,7 +8,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <?php echo $this->element('side_common'); ?>
-        <li><?= $this->Html->link(__('New Want'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="wants index large-9 medium-8 columns content">

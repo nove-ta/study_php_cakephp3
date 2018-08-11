@@ -10,6 +10,9 @@ use Cake\TestSuite\Fixture\TestFixture;
 class WantsFixture extends TestFixture
 {
 
+    // オプション。異なるテストデータソースにフィクスチャーをロードするために、このプロパティーを設定
+    public $import = ['table' => 'wants', 'connection' => 'test'];
+
     /**
      * Fields
      *

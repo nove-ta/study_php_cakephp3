@@ -6,11 +6,14 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
+        <li>ようこそ<?= $login_user_name ?>さん</li>
         <li class="heading"><?= __('Actions') ?></li>
-        <?php echo $this->element('side_common'); ?>
+        <ul>
         <li><?= $this->Html->link(__('New Item'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
+        </ul>
+        <?= $this->element('side_common'); ?>
     </ul>
 </nav>
 <div class="items index large-9 medium-8 columns content">
@@ -35,7 +38,7 @@
             <tr>
                 <td><?= $this->Number->format($item->item_id) ?></td>
                 <td><?= h($item->name) ?></td>
-                <td><?= $this->Number->format($item->category_id) ?></td>
+                <td><?= $item->has('category') ? $this->Html->link($item->category->name, ['controller' => 'Categories', 'action' => 'view', $item->category->category_id]) : '' ?></td>
                 <td><?= $this->Number->format($item->width) ?></td>
                 <td><?= $this->Number->format($item->depth) ?></td>
                 <td><?= $this->Number->format($item->height) ?></td>

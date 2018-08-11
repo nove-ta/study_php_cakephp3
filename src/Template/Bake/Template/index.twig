@@ -22,8 +22,9 @@
 {% set fields = Bake.filterFields(fields, schema, modelObject, indexColumns, ['binary', 'text']) %}
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
+        <li>ようこそ<?= $login_user_name ?>さん</li>
         <li class="heading"><?= __('Actions') ?></li>
-        <?php echo $this->element('side_common'); ?>
+        <ul>
         <li><?= $this->Html->link(__('New {{ singularHumanName }}'), ['action' => 'add']) ?></li>
 {% set done = [] %}
 {% for type, data in associations %}
@@ -31,6 +32,8 @@
 {% if details.navLink and details.controller is not same as(_view.name) and details.controller not in done %}
         <li><?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {{ alias|singularize|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add']) ?></li>
+        </ul>
+        <?= $this->element('side_common'); ?>
 {% set done = done|merge([details.controller]) %}
 {% endif %}
 {% endfor %}

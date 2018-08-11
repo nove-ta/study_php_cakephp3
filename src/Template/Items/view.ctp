@@ -23,12 +23,12 @@
             <td><?= h($item->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Item Id') ?></th>
-            <td><?= $this->Number->format($item->item_id) ?></td>
+            <th scope="row"><?= __('Category') ?></th>
+            <td><?= $item->has('category') ? $this->Html->link($item->category->name, ['controller' => 'Categories', 'action' => 'view', $item->category->category_id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Category Id') ?></th>
-            <td><?= $this->Number->format($item->category_id) ?></td>
+            <th scope="row"><?= __('Item Id') ?></th>
+            <td><?= $this->Number->format($item->item_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Width') ?></th>

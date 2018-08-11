@@ -6,8 +6,9 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
+        <li>ようこそ<?= $login_user_name ?>さん</li>
         <li class="heading"><?= __('Actions') ?></li>
-        <?php echo $this->element('side_common'); ?>
+        <ul>
         <li><?= $this->Html->link(__('New Category'), ['action' => 'add']) ?></li>
     </ul>
 </nav>

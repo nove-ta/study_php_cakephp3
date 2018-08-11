@@ -24,7 +24,7 @@
         <legend><?= __('Edit Item') ?></legend>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('category_id');
+            echo $this->Form->control('category_id', ['options' => $categories]);
             echo $this->Form->control('width');
             echo $this->Form->control('depth');
             echo $this->Form->control('height');

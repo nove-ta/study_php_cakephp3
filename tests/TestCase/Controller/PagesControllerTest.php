@@ -34,6 +34,14 @@ class PagesControllerTest extends IntegrationTestCase
      */
     public function testMultipleGet()
     {
+        $this->session(['Auth' => [
+            'User' => [
+                'id' => 1,
+                'email' => 'test_mail@gmail.com',
+                'name' => 'test_man',
+            ]
+        ]]);
+
         $this->get('/');
         $this->assertResponseOk();
         $this->get('/');

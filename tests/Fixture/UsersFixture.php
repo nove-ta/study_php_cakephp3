@@ -9,6 +9,8 @@ use Cake\TestSuite\Fixture\TestFixture;
  */
 class UsersFixture extends TestFixture
 {
+    // オプション。異なるテストデータソースにフィクスチャーをロードするために、このプロパティーを設定
+    public $import = ['table' => 'users', 'connection' => 'test'];
 
     /**
      * Fields
@@ -43,10 +45,11 @@ class UsersFixture extends TestFixture
     {
         $this->records = [
             [
-                'user_id' => 1,
-                'name' => 'Lorem ipsum dolor sit amet',
-                'email' => 'Lorem ipsum dolor sit amet',
-                'password' => 'Lorem ipsum dolor sit amet',
+                //'user_id' => 2,
+                'name' => 'test_man',
+                'email' => 'test_mail@gmail.com',
+                //'password' => '$2y$10$RDuyVB6AjZBb1eEa0Strwu8raIniMx1rhX5Mdl3KSAvfLw7SGBaHG',
+                'password' => '$2y$10$OO16E3iX4fxIbnRTnEYwi.EDWffqWrhsD6FFrPyZwSuEWtbW/NX/6',
                 'created' => '2018-08-11 13:12:05',
                 'modified' => '2018-08-11 13:12:05'
             ],

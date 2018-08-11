@@ -51,5 +51,39 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+
+        // 認証用　追加
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            // コントローラーで isAuthorized を使用します
+            'authorize' => ['Controller'],
+            // 未認証の場合、直前のページに戻します
+            'unauthorizedRedirect' => $this->referer()
+        ]);
+
+        // ここに定義したものはログインなしでも閲覧可能
+        //$this->Auth->allow(['display', 'view', 'index']);
+
+        // ログインしてたらユーザ名
+        $login_user_name = $this->Auth->user('name') ?? 'no user';
+        $this->set(compact('login_user_name'));
+
+    }
+
+    // 認証用の関数（細かい確認が必要なところはこちらを利用）
+    public function isAuthorized($user)
+    {
+        return true;
     }
 }

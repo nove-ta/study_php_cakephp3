@@ -22,8 +22,8 @@ class CategoriesFixture extends TestFixture
         'is_width' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
         'is_depth' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
         'is_height' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
-        'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['category_id'], 'length' => []],
         ],
@@ -48,8 +48,8 @@ class CategoriesFixture extends TestFixture
                 'is_width' => 1,
                 'is_depth' => 1,
                 'is_height' => 1,
-                'created' => '2018-08-11 13:12:19',
-                'modified' => '2018-08-11 13:12:19'
+                'created' => '2018-08-11 18:39:03',
+                'modified' => '2018-08-11 18:39:03'
             ],
         ];
         parent::init();

@@ -28,6 +28,11 @@ class WantsControllerTest extends IntegrationTestCase
     public function testIndex()
     {
         $this->markTestIncomplete('Not implemented yet.');
+
+        $this->get('/wants');
+        $this->assertResponseOk();
+        $this->assertResponseContains('>ログイン</a>');
+        $this->assertCount(1, $this->viewVariable('wants'));
     }
 
     /**

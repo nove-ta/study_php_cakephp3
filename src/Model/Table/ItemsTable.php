@@ -87,8 +87,7 @@ class ItemsTable extends Table
 
         $validator
             ->scalar('memo')
-            ->requirePresence('memo', 'create')
-            ->notEmpty('memo');
+            ->allowEmpty('memo');
 
         return $validator;
     }
