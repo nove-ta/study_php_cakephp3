@@ -86,4 +86,14 @@ class AppController extends Controller
     {
         return true;
     }
+
+    public function beforeRender(Event $event) {
+        // ----- 処理 -----
+
+        // PC／スマホのview切り替え
+        if (!$this->request->isMobile()) {
+            // plugins/Sp/Template内のviewが読み込まれる
+            $this->viewBuilder()->theme('Sp');
+        }
+    }
 }
