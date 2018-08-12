@@ -82,18 +82,25 @@ class AppController extends Controller
     }
 
     // 認証用の関数（細かい確認が必要なところはこちらを利用）
-    public function isAuthorized($user)
+    public function isAuthorized($user) : bool
     {
         return true;
     }
 
-    public function beforeRender(Event $event) {
-        // ----- 処理 -----
-
+    // view切り替え
+    public function beforeRender(Event $event)
+    {    
         // PC／スマホのview切り替え
-        if (!$this->request->isMobile()) {
+        if ($this->request->isMobile()) {
             // plugins/Sp/Template内のviewが読み込まれる
             $this->viewBuilder()->setTheme('Sp');
         }
+    }
+
+    public function my_dump($value) : void 
+    {
+        echo '<pre>';
+        print_r($value);
+        echo '</pre>';
     }
 }
