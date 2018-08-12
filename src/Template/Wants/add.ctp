@@ -18,13 +18,13 @@
         <legend><?= __('Add Want') ?></legend>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('category_id');
+            echo $this->Form->control('category_id', ['options' => $categories]);
             echo $this->Form->control('width_min');
             echo $this->Form->control('width_max');
-            echo $this->Form->control('min_depth');
-            echo $this->Form->control('max_depth');
-            echo $this->Form->control('min_height');
-            echo $this->Form->control('max_height');
+            echo $this->Form->control('depth_min');
+            echo $this->Form->control('depth_max');
+            echo $this->Form->control('height_min');
+            echo $this->Form->control('height_max');
             echo $this->Form->control('num');
             echo $this->Form->control('memo');
         ?>

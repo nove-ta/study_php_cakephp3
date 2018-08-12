@@ -11,10 +11,10 @@ use Cake\ORM\Entity;
  * @property int $category_id
  * @property int $width_min
  * @property int $width_max
- * @property int $min_depth
- * @property int $max_depth
- * @property int $min_height
- * @property int $max_height
+ * @property int $depth_min
+ * @property int $depth_max
+ * @property int $height_min
+ * @property int $height_max
  * @property int $num
  * @property string $memo
  * @property \Cake\I18n\FrozenTime $created
@@ -39,10 +39,10 @@ class Want extends Entity
         'category_id' => true,
         'width_min' => true,
         'width_max' => true,
-        'min_depth' => true,
-        'max_depth' => true,
-        'min_height' => true,
-        'max_height' => true,
+        'depth_min' => true,
+        'depth_max' => true,
+        'height_min' => true,
+        'height_max' => true,
         'num' => true,
         'memo' => true,
         'created' => true,

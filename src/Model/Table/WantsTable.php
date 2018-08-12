@@ -75,24 +75,24 @@ class WantsTable extends Table
             ->notEmpty('width_max');
 
         $validator
-            ->integer('min_depth')
-            ->requirePresence('min_depth', 'create')
-            ->notEmpty('min_depth');
+            ->integer('depth_min')
+            ->requirePresence('depth_min', 'create')
+            ->notEmpty('depth_min');
 
         $validator
-            ->integer('max_depth')
-            ->requirePresence('max_depth', 'create')
-            ->notEmpty('max_depth');
+            ->integer('depth_max')
+            ->requirePresence('depth_max', 'create')
+            ->notEmpty('depth_max');
 
         $validator
-            ->integer('min_height')
-            ->requirePresence('min_height', 'create')
-            ->notEmpty('min_height');
+            ->integer('height_min')
+            ->requirePresence('height_min', 'create')
+            ->notEmpty('height_min');
 
         $validator
-            ->integer('max_height')
-            ->requirePresence('max_height', 'create')
-            ->notEmpty('max_height');
+            ->integer('height_max')
+            ->requirePresence('height_max', 'create')
+            ->notEmpty('height_max');
 
         $validator
             ->integer('num')
@@ -101,8 +101,7 @@ class WantsTable extends Table
 
         $validator
             ->scalar('memo')
-            ->requirePresence('memo', 'create')
-            ->notEmpty('memo');
+            ->allowEmpty('memo');
 
         return $validator;
     }

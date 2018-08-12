@@ -6,11 +6,14 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
+        <li>ようこそ<?= $login_user_name ?>さん</li>
         <li class="heading"><?= __('Actions') ?></li>
-        <?php echo $this->element('side_common'); ?>
+        <ul>
         <li><?= $this->Html->link(__('New Want'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
+        </ul>    
+        <?= $this->element('side_common'); ?>
     </ul>
 </nav>
 <div class="wants index large-9 medium-8 columns content">
@@ -23,10 +26,10 @@
                 <th scope="col"><?= $this->Paginator->sort('category_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('width_min') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('width_max') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('min_depth') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('max_depth') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('min_height') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('max_height') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('depth_min') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('depth_max') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('height_min') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('height_max') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('num') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -38,13 +41,13 @@
             <tr>
                 <td><?= $this->Number->format($want->want_id) ?></td>
                 <td><?= h($want->name) ?></td>
-                <td><?= $this->Number->format($want->category_id) ?></td>
+                <td><?= $want->has('category') ? $this->Html->link($want->category->name, ['controller' => 'Categories', 'action' => 'view', $want->category->category_id]) : '' ?></td>
                 <td><?= $this->Number->format($want->width_min) ?></td>
                 <td><?= $this->Number->format($want->width_max) ?></td>
-                <td><?= $this->Number->format($want->min_depth) ?></td>
-                <td><?= $this->Number->format($want->max_depth) ?></td>
-                <td><?= $this->Number->format($want->min_height) ?></td>
-                <td><?= $this->Number->format($want->max_height) ?></td>
+                <td><?= $this->Number->format($want->depth_min) ?></td>
+                <td><?= $this->Number->format($want->depth_max) ?></td>
+                <td><?= $this->Number->format($want->height_min) ?></td>
+                <td><?= $this->Number->format($want->height_max) ?></td>
                 <td><?= $this->Number->format($want->num) ?></td>
                 <td><?= h($want->created) ?></td>
                 <td><?= h($want->modified) ?></td>

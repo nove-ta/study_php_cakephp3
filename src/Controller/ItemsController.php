@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+//use Cake\ORM\TableRegistry;
 
 /**
  * Items Controller
@@ -12,6 +13,14 @@ use App\Controller\AppController;
  */
 class ItemsController extends AppController
 {
+
+    public function initialize()
+     {
+         parent::initialize();
+         //$this->Wants = TableRegistry::get('wants');
+         $this->loadModel('Wants');
+         $this->loadModel('BestItems');
+    }
 
     /**
      * Index method
@@ -41,8 +50,52 @@ class ItemsController extends AppController
             'contain' => ['Categories']
         ]);
 
+        $user_id = $this->Auth->user('user_id');
+
+        $wants = [];
+        if($item->category_id > 0){
+            
+            // ベストなものがあるか
+            $best_item_query = $this->BestItems->find()->where(['user_id'=>$user_id, 'item_id' => $item->item_id]);
+            $best_item = $best_item_query->first();
+
+            // 欲しいものと一致するか
+            $wants_query = $this->Wants->find('all')->where(['category_id' => $item->category_id]);
+            //$wants_query = $this->Wants->find('all')->where(['category_id' => $item->category_id])->enableHydration(false);
+            //$wants_ary = $this->Wants->find('all')->where(['category_id' => $item->category_id])->toArray();  // Entity未定義のが取れない？
+            foreach($wants_query->toArray() as $want){
+                $want['is_match'] = $this->isMatch($item, $want);
+                $want['is_best_match'] = ($best_item !== null && $best_item->want_id === $want['want_id']) ? true : false;
+                $wants[] = (object)$want;
+            }
+        }
+
         $this->set('item', $item);
+        $this->set('wants', $wants);
     }
+
+    /**
+    * itemとマッチしているか
+    */
+    private function isMatch($item, $want): bool
+    {
+       if($item->category->is_width){
+           if($item->width < $want['width_min'] || $want['width_max'] < $item->width){
+               return false;
+           }
+       }
+       if($item->category->is_depth){
+           if($item->depth < $want['depth_min'] || $want['depth_max'] < $item->depth){
+               return false;
+           }
+       }
+       if($item->category->is_height){
+           if($item->height < $want['height_min'] || $want['height_max'] < $item->height){
+               return false;
+           }
+       }
+       return true;
+   }
 
     /**
      * Add method
@@ -108,5 +161,37 @@ class ItemsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function match(int $item_id, int $want_id)
+    {
+        $user_id = $this->Auth->user('user_id');
+
+        // ベストなものがあるか
+        $best_item_query = $this->BestItems->find()->where(['user_id'=>$user_id, 'item_id' => $item_id]);
+        $best_item = $best_item_query->first();
+
+        if($best_item !== null){
+            // 更新
+            $best_item->want_id = $want_id;
+            if ($this->BestItems->save($best_item)) {
+                $this->Flash->success(__('The item has been resaved.'));
+            } else {
+                $this->Flash->error(__('The item could not be resaved. Please, try again.'));
+            }
+        } else {
+            // 新規作成
+            $best_item = $this->BestItems->newEntity();
+            $best_item->user_id = $user_id;
+            $best_item->item_id = $item_id;
+            $best_item->want_id = $want_id;
+            if ($this->BestItems->save($best_item)) {
+                $this->Flash->success(__('The item has been saved.'));
+            } else {
+                $this->Flash->error(__('The item could not be saved. Please, try again.'));
+            }
+        }
+
+        return $this->redirect(['action' => 'view', $item_id]);
     }
 }
