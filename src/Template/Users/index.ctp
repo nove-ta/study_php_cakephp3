@@ -22,7 +22,7 @@
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
+                <?php /* <th scope="col"><?= $this->Paginator->sort('password') ?></th> */ ?>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -34,7 +34,7 @@
                 <td><?= $this->Number->format($user->user_id) ?></td>
                 <td><?= h($user->name) ?></td>
                 <td><?= h($user->email) ?></td>
-                <td><?= h($user->password) ?></td>
+                <?php /* <td><?= h($user->password) ?></td> */ ?>
                 <td><?= h($user->created) ?></td>
                 <td><?= h($user->modified) ?></td>
                 <td class="actions">

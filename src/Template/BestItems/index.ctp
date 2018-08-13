@@ -10,8 +10,6 @@
         <li class="heading"><?= __('Actions') ?></li>
         <ul>
         <li><?= $this->Html->link(__('New Best Item'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         </ul>
         <?= $this->element('side_common'); ?>
     </ul>
@@ -25,7 +23,7 @@
                 <th scope="col"><?= $this->Paginator->sort('item_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('want_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('updated') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -36,7 +34,7 @@
                 <td><?= $bestItem->has('item') ? $this->Html->link($bestItem->item->name, ['controller' => 'Items', 'action' => 'view', $bestItem->item->item_id]) : '' ?></td>
                 <td><?= $bestItem->has('want') ? $this->Html->link($bestItem->want->name, ['controller' => 'Wants', 'action' => 'view', $bestItem->want->want_id]) : '' ?></td>
                 <td><?= h($bestItem->created) ?></td>
-                <td><?= h($bestItem->updated) ?></td>
+                <td><?= h($bestItem->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $bestItem->user_id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $bestItem->user_id]) ?>

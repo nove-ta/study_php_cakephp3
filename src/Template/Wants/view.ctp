@@ -14,8 +14,6 @@
         <li><?= $this->Html->link(__('New Want'), ['action' => 'add']) ?> </li>
         </ul>
         <?= $this->element('side_common'); ?>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="wants view large-9 medium-8 columns content">

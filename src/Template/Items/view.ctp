@@ -11,8 +11,6 @@
         <li><?= $this->Form->postLink(__('Delete Item'), ['action' => 'delete', $item->item_id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->item_id)]) ?> </li>
         <li><?= $this->Html->link(__('List Items'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Item'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="items view large-9 medium-8 columns content">
