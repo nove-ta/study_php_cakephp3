@@ -32,12 +32,12 @@
 {% if details.navLink and details.controller is not same as(_view.name) and details.controller not in done %}
         <li><?= $this->Html->link(__('List {{ alias|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New {{ alias|singularize|underscore|humanize }}'), ['controller' => '{{ details.controller }}', 'action' => 'add']) ?></li>
-        </ul>
-        <?= $this->element('side_common'); ?>
+        </ul>    
 {% set done = done|merge([details.controller]) %}
 {% endif %}
 {% endfor %}
 {% endfor %}
+    <?= $this->element('side_common'); ?>
     </ul>
 </nav>
 <div class="{{ pluralVar }} index large-9 medium-8 columns content">
