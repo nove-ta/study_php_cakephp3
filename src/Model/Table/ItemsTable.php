@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Items Model
  *
+ * @property |\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\CategoriesTable|\Cake\ORM\Association\BelongsTo $Categories
  *
  * @method \App\Model\Entity\Item get($primaryKey, $options = [])
@@ -41,6 +42,10 @@ class ItemsTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id',
             'joinType' => 'INNER'
@@ -56,7 +61,6 @@ class ItemsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('item_id')
             ->allowEmpty('item_id', 'create');
 
         $validator
@@ -102,6 +106,7 @@ class ItemsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['category_id'], 'Categories'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }

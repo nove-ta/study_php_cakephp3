@@ -42,8 +42,8 @@
             <td><?= h($bestItem->created) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Updated') ?></th>
-            <td><?= h($bestItem->updated) ?></td>
+            <th scope="row"><?= __('Modified') ?></th>
+            <td><?= h($bestItem->modified) ?></td>
         </tr>
     </table>
 </div>

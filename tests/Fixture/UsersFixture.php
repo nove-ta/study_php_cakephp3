@@ -9,8 +9,6 @@ use Cake\TestSuite\Fixture\TestFixture;
  */
 class UsersFixture extends TestFixture
 {
-    // オプション。異なるテストデータソースにフィクスチャーをロードするために、このプロパティーを設定
-    public $import = ['table' => 'users', 'connection' => 'test'];
 
     /**
      * Fields
@@ -19,7 +17,7 @@ class UsersFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'user_id' => ['type' => 'biginteger', 'length' => 20, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'user_id' => ['type' => 'biginteger', 'length' => 20, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'name' => ['type' => 'string', 'length' => 128, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'email' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'password' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -45,13 +43,12 @@ class UsersFixture extends TestFixture
     {
         $this->records = [
             [
-                //'user_id' => 2,
-                'name' => 'test_man',
-                'email' => 'test_mail@gmail.com',
-                //'password' => '$2y$10$RDuyVB6AjZBb1eEa0Strwu8raIniMx1rhX5Mdl3KSAvfLw7SGBaHG',
-                'password' => '$2y$10$OO16E3iX4fxIbnRTnEYwi.EDWffqWrhsD6FFrPyZwSuEWtbW/NX/6',
-                'created' => '2018-08-11 13:12:05',
-                'modified' => '2018-08-11 13:12:05'
+                'user_id' => 1,
+                'name' => 'Lorem ipsum dolor sit amet',
+                'email' => 'Lorem ipsum dolor sit amet',
+                'password' => 'Lorem ipsum dolor sit amet',
+                'created' => '2018-08-14 07:50:50',
+                'modified' => '2018-08-14 07:50:50'
             ],
         ];
         parent::init();

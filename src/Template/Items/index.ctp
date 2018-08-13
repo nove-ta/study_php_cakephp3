@@ -10,8 +10,10 @@
         <li class="heading"><?= __('Actions') ?></li>
         <ul>
         <li><?= $this->Html->link(__('New Item'), ['action' => 'add']) ?></li>
-        </ul>
-        <?= $this->element('side_common'); ?>
+        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
+        </ul>    
+    <?= $this->element('side_common'); ?>
     </ul>
 </nav>
 <div class="items index large-9 medium-8 columns content">
@@ -20,6 +22,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('item_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('category_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('width') ?></th>
@@ -35,6 +38,7 @@
             <?php foreach ($items as $item): ?>
             <tr>
                 <td><?= $this->Number->format($item->item_id) ?></td>
+                <td><?= $this->Number->format($item->user_id) ?></td>
                 <td><?= h($item->name) ?></td>
                 <td><?= $item->has('category') ? $this->Html->link($item->category->name, ['controller' => 'Categories', 'action' => 'view', $item->category->category_id]) : '' ?></td>
                 <td><?= $this->Number->format($item->width) ?></td>

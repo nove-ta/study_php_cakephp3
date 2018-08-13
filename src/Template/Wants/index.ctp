@@ -13,7 +13,7 @@
         <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
         </ul>    
-        <?= $this->element('side_common'); ?>
+    <?= $this->element('side_common'); ?>
     </ul>
 </nav>
 <div class="wants index large-9 medium-8 columns content">
@@ -22,6 +22,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('want_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('category_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('width_min') ?></th>
@@ -40,6 +41,7 @@
             <?php foreach ($wants as $want): ?>
             <tr>
                 <td><?= $this->Number->format($want->want_id) ?></td>
+                <td><?= $this->Number->format($want->user_id) ?></td>
                 <td><?= h($want->name) ?></td>
                 <td><?= $want->has('category') ? $this->Html->link($want->category->name, ['controller' => 'Categories', 'action' => 'view', $want->category->category_id]) : '' ?></td>
                 <td><?= $this->Number->format($want->width_min) ?></td>

@@ -17,6 +17,7 @@
     <fieldset>
         <legend><?= __('Add Want') ?></legend>
         <?php
+            echo $this->Form->control('user_id');
             echo $this->Form->control('name');
             echo $this->Form->control('category_id', ['options' => $categories]);
             echo $this->Form->control('width_min');

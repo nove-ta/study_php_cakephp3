@@ -7,6 +7,7 @@ use Cake\ORM\Entity;
  * Item Entity
  *
  * @property int $item_id
+ * @property int $user_id
  * @property string $name
  * @property int $category_id
  * @property int $width
@@ -32,6 +33,7 @@ class Item extends Entity
      * @var array
      */
     protected $_accessible = [
+        'user_id' => true,
         'name' => true,
         'category_id' => true,
         'width' => true,

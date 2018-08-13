@@ -14,6 +14,8 @@
         <li><?= $this->Html->link(__('New Want'), ['action' => 'add']) ?> </li>
         </ul>
         <?= $this->element('side_common'); ?>
+        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="wants view large-9 medium-8 columns content">
@@ -30,6 +32,10 @@
         <tr>
             <th scope="row"><?= __('Want Id') ?></th>
             <td><?= $this->Number->format($want->want_id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('User Id') ?></th>
+            <td><?= $this->Number->format($want->user_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Width Min') ?></th>

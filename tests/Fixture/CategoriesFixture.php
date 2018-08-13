@@ -17,11 +17,11 @@ class CategoriesFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'category_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'category_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'name' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'is_width' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
-        'is_depth' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
-        'is_height' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
+        'is_width' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => true, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
+        'is_depth' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => true, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
+        'is_height' => ['type' => 'tinyinteger', 'length' => 4, 'unsigned' => true, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
@@ -48,8 +48,8 @@ class CategoriesFixture extends TestFixture
                 'is_width' => 1,
                 'is_depth' => 1,
                 'is_height' => 1,
-                'created' => '2018-08-11 18:39:03',
-                'modified' => '2018-08-11 18:39:03'
+                'created' => '2018-08-14 07:50:37',
+                'modified' => '2018-08-14 07:50:37'
             ],
         ];
         parent::init();

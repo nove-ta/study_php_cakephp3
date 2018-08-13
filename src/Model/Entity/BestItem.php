@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property int $item_id
  * @property int $want_id
  * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $updated
+ * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Item $item
@@ -29,11 +29,9 @@ class BestItem extends Entity
      * @var array
      */
     protected $_accessible = [
-        'user_id' => true,
-        'item_id' => true,
         'want_id' => true,
         'created' => true,
-        'updated' => true,
+        'modified' => true,
         'user' => true,
         'item' => true,
         'want' => true

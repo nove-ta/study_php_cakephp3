@@ -19,6 +19,10 @@
     <h3><?= h($item->name) ?></h3>
     <table class="vertical-table">
         <tr>
+            <th scope="row"><?= __('User Id') ?></th>
+            <td><?= $this->Number->format($item->user_id) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($item->name) ?></td>
         </tr>
