@@ -10,6 +10,8 @@
         <li class="heading"><?= __('Actions') ?></li>
         <ul>
         <li><?= $this->Html->link(__('New Category'), ['action' => 'add']) ?></li>
+        </ul>
+        <?= $this->element('side_common'); ?>
     </ul>
 </nav>
 <div class="categories index large-9 medium-8 columns content">

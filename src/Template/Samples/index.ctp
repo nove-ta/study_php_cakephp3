@@ -6,7 +6,6 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
         <?php echo $this->element('side_common'); ?>
     </ul>
 </nav>

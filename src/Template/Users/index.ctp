@@ -6,9 +6,12 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <?php echo $this->element('side_common'); ?>
+        <li>ようこそ<?= $login_user_name ?>さん</li>
+        <li class="heading"><?= __('Actions') ?></li>        
+        <ul>
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
+        </ul>
+        <?php echo $this->element('side_common'); ?>
     </ul>
 </nav>
 <div class="users index large-9 medium-8 columns content">
