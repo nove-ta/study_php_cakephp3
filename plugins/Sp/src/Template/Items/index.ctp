@@ -7,12 +7,6 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li>ようこそ<?= $login_user_name ?>さん</li>
-        <li class="heading"><?= __('Actions') ?></li>
-        <ul>
-        <li><?= $this->Html->link(__('New Item'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
-        </ul>
         <?= $this->element('side_common'); ?>
     </ul>
 </nav>
